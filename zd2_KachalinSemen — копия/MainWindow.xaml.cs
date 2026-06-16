@@ -101,6 +101,9 @@ namespace zd2_KachalinSemen
             }
             Book.AddContact(NameAdded.Text, PhoneAdded.Text);
             UpdDataGrid();
+            NameAdded.Text = "";
+            PhoneAdded.Text = "";
+            datagrid1.SelectedIndex = -1;
         }
     }
 }
