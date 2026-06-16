@@ -21,7 +21,7 @@ namespace zd2_KachalinSemen
     public partial class MainWindow : Window
     {
         PhoneBook Book = new PhoneBook();
-        public void UpdDataGrid()
+        public void UpdDataGrid() //Обновление дата грид для показа всех контактов
         {
             datagrid1.ItemsSource = null;
             datagrid1.Items.Clear();
@@ -33,7 +33,7 @@ namespace zd2_KachalinSemen
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //Загрузка из файла
         {
 
             PhoneBookLoader.Load(Book, $"contacts.csv");
@@ -41,7 +41,7 @@ namespace zd2_KachalinSemen
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e) //Сохранение в файл
         {
 
             PhoneBookLoader.Save(Book, $"contacts.csv");
@@ -49,14 +49,14 @@ namespace zd2_KachalinSemen
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e) //Показывает все именна через поиск по именам
         {
             datagrid1.ItemsSource = null;
             datagrid1.ItemsSource = Book.SearchContactName(SearchName.Text);
             
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e) //Удаление пользователей
         {
             if(NameAdded.Text.Length == 0 || PhoneAdded.Text.Length == 0)
             {
@@ -67,7 +67,7 @@ namespace zd2_KachalinSemen
             UpdDataGrid();
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e) //Добавление пользователей
         {
             if (NameAdded.Text.Length == 0 || PhoneAdded.Text.Length == 0)
             {
