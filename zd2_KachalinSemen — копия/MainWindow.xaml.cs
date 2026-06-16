@@ -77,6 +77,7 @@ namespace zd2_KachalinSemen
             UpdDataGrid();
             NameAdded.Text = "";
             PhoneAdded.Text = "";
+            datagrid1.SelectedIndex = -1;
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e) //Добавление пользователей
