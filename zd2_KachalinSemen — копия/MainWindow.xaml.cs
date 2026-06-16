@@ -74,10 +74,16 @@ namespace zd2_KachalinSemen
                 MessageBox.Show("Строка с именем или телефоном пуста");
                 return;
             }
-            var FalseChaars = PhoneAdded.Text.ToCharArray().ToList().Where(T => !Char.IsDigit(T)).ToList();
+           var FalseChaars = PhoneAdded.Text.ToCharArray().ToList().Where(T => !Char.IsDigit(T)).ToList();
             if(FalseChaars.Count > 0)
             {
                 MessageBox.Show("Номер телефона может иметь только цифры");
+                return;
+            }
+            var FalseChaars2 = NameAdded.Text.ToCharArray().ToList().Where(T => !Char.IsLetter(T) && T != ' ').ToList();
+            if (FalseChaars2.Count > 0)
+            {
+                MessageBox.Show("Имя не может иметь цифры");
                 return;
             }
             Book.AddContact(NameAdded.Text, PhoneAdded.Text);
