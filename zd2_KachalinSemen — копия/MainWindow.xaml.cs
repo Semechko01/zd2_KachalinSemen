@@ -60,11 +60,23 @@ namespace zd2_KachalinSemen
         {
             if(NameAdded.Text.Length == 0 || PhoneAdded.Text.Length == 0)
             {
-                MessageBox.Show("Строка с именем или телефоном пуста");
-                return;
+                if (datagrid1.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Строка с именем или телефоном пуста и индекс для удаления не выбран");
+                    return;
+                }
+                else
+                {
+                    var books = Book.GetListContact();
+                    Book.DeleteContact(books[datagrid1.SelectedIndex]);
+                    UpdDataGrid();
+                    datagrid1.SelectedIndex = -1;
+                }
             }
             Book.DeleteContact(NameAdded.Text, PhoneAdded.Text);
             UpdDataGrid();
+            NameAdded.Text = "";
+            PhoneAdded.Text = "";
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e) //Добавление пользователей
